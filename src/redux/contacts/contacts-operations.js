@@ -9,13 +9,12 @@ import {
 axios.defaults.baseURL = 'http://localhost:4040';
 
 export const fetchContact = createAsyncThunk(
-  'contacts/fetchContact',
+  'contacts/fetchContacts',
   async (_, { rejectWithValue }) => {
     try {
-      const contacts = await fetchContacts();
-      console.log(contacts);
-      // axios.get("./contacts");
-      return contacts;
+      const { data } = await fetchContacts();
+      console.log(typeof data);
+      return data;
     } catch (error) {
       return rejectWithValue(error);
     }
