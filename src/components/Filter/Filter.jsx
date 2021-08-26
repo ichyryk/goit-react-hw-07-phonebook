@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import s from '../Form/Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from '../../redux/contacts/contacts-selector';
-import * as actions from '../../redux/contacts/contacts-actions';
+import { selectors, actions } from 'redux/contacts';
 
 const Filter = () => {
-  const value = useSelector(getFilter);
+  const value = useSelector(selectors.getFilter);
   const dispatch = useDispatch();
 
   return (
