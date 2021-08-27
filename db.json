@@ -1,90 +1,23 @@
 {
   "contacts": [
     {
-      "name": "rosie Simpson",
-      "number": "98765432324",
       "id": 1
     },
     {
-      "name": "rosie Simpson",
-      "number": "98765432324",
       "id": 2
     },
     {
       "id": 3
     },
     {
+      "name": "rosie Simpson",
+      "number": "98765432324",
       "id": 4
     },
     {
+      "name": "vanessa click",
+      "number": "234565342343",
       "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 12
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 13
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 14
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 15
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 16
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 17
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 18
-    },
-    {
-      "name": "rosie Simpson",
-      "number": "98765432324",
-      "id": 19
-    },
-    {
-      "id": 20
-    },
-    {
-      "id": 21
-    },
-    {
-      "id": 22
     }
   ]
 }

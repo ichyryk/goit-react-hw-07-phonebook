@@ -1,29 +1,65 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { operations } from 'redux/contacts';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { operations, selectors } from 'redux/contacts';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-const initialState = {
-  name: '',
-  number: '',
-};
+// const initialState = {
+//   name: '',
+//   number: '',
+// };
 
 const Form = () => {
-  const [inputValue, setInputValue] = useState(initialState);
-  const { name, number } = inputValue;
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-
-  const changeInput = e => {
-    const { name, value } = e.currentTarget;
-    setInputValue({ ...inputValue, [name]: value });
-  };
+  const contacts = useSelector(selectors.getContacts);
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(operations.addContact(name, number));
-    setInputValue(initialState);
+    if (contacts.some(contact => contact.name === name)) {
+      toast.error(`${name} already in the contacts.`);
+      return;
+    }
+    dispatch(operations.addContact({ name, number }));
+
+    resetForm();
   };
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'number':
+        setNumber(value);
+        break;
+      default:
+        return;
+    }
+  };
+
+  const resetForm = () => {
+    setName('');
+    setNumber('');
+  };
+  // const [inputValue, setInputValue] = useState('');
+  // const { name, number } = inputValue;
+  // const dispatch = useDispatch();
+
+  // const changeInput = e => {
+  //   const { name, value } = e.currentTarget;
+  //   setInputValue({ ...inputValue, [name]: value });
+  // };
+
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   dispatch(operations.addContact(name, number));
+  //   setInputValue('');
+  // };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -37,7 +73,7 @@ const Form = () => {
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
           placeholder="Enter your name"
-          onChange={changeInput}
+          onChange={handleChange}
         />
       </label>
       <label>
@@ -50,7 +86,7 @@ const Form = () => {
           title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
           required
           placeholder="Enter your number"
-          onChange={changeInput}
+          onChange={handleChange}
         />
       </label>
       <button type="submit">Add contact</button>
