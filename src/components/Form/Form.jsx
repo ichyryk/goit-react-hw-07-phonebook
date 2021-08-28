@@ -46,20 +46,6 @@ const Form = () => {
     setName('');
     setNumber('');
   };
-  // const [inputValue, setInputValue] = useState('');
-  // const { name, number } = inputValue;
-  // const dispatch = useDispatch();
-
-  // const changeInput = e => {
-  //   const { name, value } = e.currentTarget;
-  //   setInputValue({ ...inputValue, [name]: value });
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(operations.addContact(name, number));
-  //   setInputValue('');
-  // };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>

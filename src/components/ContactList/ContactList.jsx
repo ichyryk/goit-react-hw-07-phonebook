@@ -6,7 +6,6 @@ import ContactListItem from '../ContactListItem';
 
 const ContactList = () => {
   const contacts = useSelector(selectors.getVisibleContacts);
-  console.log(contacts);
   const dispatch = useDispatch();
   const onDeleteContact = id => {
     dispatch(operations.deleteContact(id));

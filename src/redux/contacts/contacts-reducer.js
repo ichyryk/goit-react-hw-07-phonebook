@@ -38,36 +38,6 @@ export default combineReducers({
   error,
 });
 
-// const items = createReducer([], {
-//   [fetchContact.fulfilled]: (_, { payload }) => payload,
-//   [addContact.fulfilled]: (state, { payload }) => [...state, payload],
-//   [deleteContact]: (state, { payload }) =>
-//     state.filter(({ id }) => id !== payload),
-// });
-
-// const filter = createReducer('', {
-//   [changeFilter]: (_, { payload }) => payload,
-// });
-
-// const loading = createReducer(false, {
-//   [addContact]: () => true,
-//   [addContact]: () => false,
-//   [addContact]: () => false,
-//   [deleteContact]: () => true,
-//   [deleteContact]: () => false,
-//   [deleteContact]: () => false,
-//   [fetchContact]: () => true,
-//   [fetchContact]: () => false,
-//   [fetchContact]: () => false,
-// });
-
-// const error = createReducer(null, {
-//   [fetchContact.rejected]: (_, { payload }) => payload,
-//   [fetchContact.error]: () => null,
-// });
-
-// export default combineReducers({ items, filter, loading, error });
-
 // const contactSlice = createSlice({
 //   name: "contacts",
 //   initialState: { items: [], filter: "", loading: false, error: null },

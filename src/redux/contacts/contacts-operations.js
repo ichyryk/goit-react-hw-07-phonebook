@@ -13,8 +13,6 @@ export const fetchContact = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await fetchContacts();
-      console.log(typeof data);
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -32,7 +30,6 @@ export const addContact = createAsyncThunk(
         number,
       };
       const { data } = await fetchAddContact(newContact);
-      // axios.post('./contacts', newContact)
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -47,54 +44,9 @@ export const deleteContact = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       await fetchDeleteContact(id);
-      // axios.delete(`./contacts/${id}`)
-
       return id;
     } catch (error) {
       return rejectWithValue(error);
     }
   },
 );
-
-// const operations = {
-//   addContactRequest,
-//   addContactSuccess,
-//   addContactError,
-//   deleteContactRequest,
-//   deleteContactSuccess,
-//   deleteContactError,
-//   fetchContactRequest,
-//   fetchContactSuccess,
-//   fetchContactError,
-// };
-
-// export default operations;
-
-// export const fetchContacts = () => async dispatch => {
-//   dispatch(fetchContactRequest());
-
-//   try {
-//     const { data } = await axios.get('/contacts');
-
-//     dispatch(fetchContactSuccess(data));
-//     console.log(data);
-//   } catch (error) {
-//     dispatch(fetchContactError());
-//   }
-// };
-
-// export const addContact = (name, number) => dispatch => {
-//   const contact = {
-//     name,
-//     number,
-//   };
-
-//   dispatch(actions.addContactRequest());
-
-//   axios
-//     .post('./contacts', contact)
-//     .then(({ data }) =>
-//       dispatch({ type: 'contacts/addContactSuccess', payload: data }),
-//     )
-//     .catch(error => dispatch(addContactError()));
-// };
